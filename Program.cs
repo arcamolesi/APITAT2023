@@ -1,12 +1,25 @@
 using APITAT;
 using Microsoft.EntityFrameworkCore;
 
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddDbContext<Contexto>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("conexao")));
+
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+                      policy =>
+                      {
+                          policy.WithOrigins("https://localhost:7254");
+                      });
+});
 
 
 builder.Services.AddControllers();
@@ -25,6 +38,11 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+<<<<<<< HEAD
+=======
+app.UseCors(MyAllowSpecificOrigins);
+
+>>>>>>> Atualiza CorsAdd project files.
 app.UseAuthorization();
 
 app.MapControllers();
