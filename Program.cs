@@ -38,7 +38,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-//uso de cors com teste de api e git
+//uso de cors novo teste
 app.UseCors(MyAllowSpecificOrigins);
 
 
