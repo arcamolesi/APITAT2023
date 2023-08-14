@@ -11,7 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<Contexto>(options =>
                 options.UseSqlServer(builder.Configuration.GetConnectionString("conexao")));
 
-
+//teste api
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: MyAllowSpecificOrigins,
@@ -38,11 +38,10 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-<<<<<<< HEAD
-=======
+
 app.UseCors(MyAllowSpecificOrigins);
 
->>>>>>> Atualiza CorsAdd project files.
+
 app.UseAuthorization();
 
 app.MapControllers();
